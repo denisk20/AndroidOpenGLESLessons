@@ -86,7 +86,17 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
 	            0.0f, 0.0f, 1.0f, 1.0f,
 	            
 	            0.0f, 0.559016994f, 0.0f, 
-	            0.0f, 1.0f, 0.0f, 1.0f};
+	            0.0f, 1.0f, 0.0f, 1.0f,
+
+	            0.5f, .5f, 0.0f,
+	            1.0f, 0.0f, 0.0f, 1.0f,
+
+	            0.5f, -0.25f, 0.0f,
+	            0.0f, 0.0f, 1.0f, 1.0f,
+
+				0.0f, 0.559016994f, 0.0f,
+				0.0f, 1.0f, 0.0f, 1.0f,
+		};
 		
 		// This triangle is yellow, cyan, and magenta.
 		final float[] triangle2VerticesData = {
@@ -357,6 +367,6 @@ public class LessonOneRenderer implements GLSurfaceView.Renderer
         Matrix.multiplyMM(mMVPMatrix, 0, mProjectionMatrix, 0, mMVPMatrix, 0);
 
         GLES20.glUniformMatrix4fv(mMVPMatrixHandle, 1, false, mMVPMatrix, 0);
-        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, 3);                               
+        GLES20.glDrawArrays(GLES20.GL_TRIANGLES, 0, aTriangleBuffer.capacity()/(mPositionDataSize + mColorDataSize));
 	}
 }
